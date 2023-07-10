@@ -1,6 +1,6 @@
-package org.mssc.order.msscbeerorderservice.repositories;
+package org.mssc.order.msscsodaorderservice.repositories;
 
-import org.mssc.order.msscbeerorderservice.domain.SodaOrder;
+import org.mssc.order.msscsodaorderservice.domain.SodaOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

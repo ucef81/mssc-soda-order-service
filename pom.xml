@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.mssc.order</groupId>
-    <artifactId>mssc-beer-order-service</artifactId>
+    <artifactId>mssc-soda-order-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mssc-beer-order-service</name>
-    <description>mssc-beer-order-service</description>
+    <name>mssc-soda-order-service</name>
+    <description>mssc-soda-order-service</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

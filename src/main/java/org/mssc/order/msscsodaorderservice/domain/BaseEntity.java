@@ -1,4 +1,4 @@
-package org.mssc.order.msscbeerorderservice.domain;
+package org.mssc.order.msscsodaorderservice.domain;
 
 
 import lombok.Getter;

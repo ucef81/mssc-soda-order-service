@@ -1,4 +1,4 @@
-package org.mssc.order.msscbeerorderservice.domain;
+package org.mssc.order.msscsodaorderservice.domain;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +33,7 @@ public class Customer extends BaseEntity {
     private String customerName;
 
 
-    @Column(length = 36, columnDefinition = "varchar")
+    @Column(length = 36, columnDefinition = "varchar(36)")
     private UUID apiKey;
 
     @OneToMany(mappedBy = "customer")
