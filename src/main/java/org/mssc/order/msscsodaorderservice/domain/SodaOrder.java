@@ -18,10 +18,10 @@ import java.util.UUID;
 public class SodaOrder extends BaseEntity{
 
     @Builder
-    public SodaOrder(UUID id, Long version, Timestamp createdDate, Timestamp lasModifiedDate, String customerRef, Customer customer
+    public SodaOrder(UUID id, Long version, Timestamp createdDate, Timestamp lastModifiedDate, String customerRef, Customer customer
             ,OrderStatusEnum orderStatus, String orderStatusCallbackUrl)
     {
-        super(id,version,createdDate,lasModifiedDate);
+        super(id,version,createdDate,lastModifiedDate);
         this.customerRef = customerRef;
         this.customer = customer;
         this.orderStatus = orderStatus;

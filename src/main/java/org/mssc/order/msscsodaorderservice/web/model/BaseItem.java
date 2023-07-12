@@ -1,4 +1,4 @@
-package org.mssc.order.msscsodaorderservice.model;
+package org.mssc.order.msscsodaorderservice.web.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

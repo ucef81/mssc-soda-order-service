@@ -1,4 +1,4 @@
-package org.mssc.order.msscsodaorderservice.mapper;
+package org.mssc.order.msscsodaorderservice.web.mapper;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package org.mssc.order.msscsodaorderservice.model;
+package org.mssc.order.msscsodaorderservice.web.model;
 
 import lombok.Builder;
 import lombok.Data;

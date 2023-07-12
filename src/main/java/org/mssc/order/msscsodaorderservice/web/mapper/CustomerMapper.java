@@ -1,9 +1,9 @@
-package org.mssc.order.msscsodaorderservice.mapper;
+package org.mssc.order.msscsodaorderservice.web.mapper;
 
 
 import org.mapstruct.Mapper;
 import org.mssc.order.msscsodaorderservice.domain.Customer;
-import org.mssc.order.msscsodaorderservice.model.CustomerDto;
+import org.mssc.order.msscsodaorderservice.web.model.CustomerDto;
 
 @Mapper(uses= {DateMapper.class})
 public interface CustomerMapper{

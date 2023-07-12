@@ -5,9 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.mssc.order.msscsodaorderservice.domain.Customer;
 import org.mssc.order.msscsodaorderservice.domain.OrderStatusEnum;
 import org.mssc.order.msscsodaorderservice.domain.SodaOrder;
-import org.mssc.order.msscsodaorderservice.mapper.SodaOrderMapper;
-import org.mssc.order.msscsodaorderservice.model.SodaOrderDto;
-import org.mssc.order.msscsodaorderservice.model.SodaOrderPagedList;
+import org.mssc.order.msscsodaorderservice.web.mapper.SodaOrderMapper;
+import org.mssc.order.msscsodaorderservice.web.model.SodaOrderDto;
+import org.mssc.order.msscsodaorderservice.web.model.SodaOrderPagedList;
 import org.mssc.order.msscsodaorderservice.repositories.CustomerRepository;
 import org.mssc.order.msscsodaorderservice.repositories.SodaOrderRepository;
 import org.mssc.order.msscsodaorderservice.specification.SodaOrderSpecification;
@@ -78,7 +78,7 @@ public class SodaOrderServiceImpl implements SodaOrderService {
     }
 
     @Override
-    public void pickUpeOrder(UUID customerId, UUID orderId) {
+    public void pickUpOrder(UUID customerId, UUID orderId) {
         SodaOrder sodaOrder = getOrder(customerId, orderId);
         sodaOrder.setOrderStatus(OrderStatusEnum.PICKED_UP);
         sodaOrderRepository.save(sodaOrder);
