@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface SodaOrderService {
 
     SodaOrderPagedList listOrders(UUID customerId, Pageable pageable);
-    SodaOrderDto PlaceOrder(UUID customerId, SodaOrderDto sodaOrderDto);
+    SodaOrderDto placeOrder(UUID customerId, SodaOrderDto sodaOrderDto);
     SodaOrderDto getOrderById(UUID customerId,UUID orderId);
     void pickUpOrder(UUID customerId, UUID orderId);
 

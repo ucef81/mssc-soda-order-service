@@ -17,11 +17,11 @@ public class SodaOrderDto extends BaseItem {
 
     @Builder
     public SodaOrderDto(UUID id, Integer version, OffsetDateTime createdDate, OffsetDateTime lastModifiedDate, UUID customerId,
-                        List<SodaOrderLineDto> SodaOrderLines,
+                        List<SodaOrderLineDto> sodaOrderLines,
                         OrderStatusEnum orderStatus, String orderStatusCallbackUrl, String customerRef) {
         super(id, version, createdDate, lastModifiedDate);
         this.customerId = customerId;
-        this.SodaOrderLines = SodaOrderLines;
+        this.sodaOrderLines = sodaOrderLines;
         this.orderStatus = orderStatus;
         this.orderStatusCallbackUrl = orderStatusCallbackUrl;
         this.customerRef = customerRef;
@@ -29,7 +29,7 @@ public class SodaOrderDto extends BaseItem {
 
     private UUID customerId;
     private String customerRef;
-    private List<SodaOrderLineDto> SodaOrderLines;
+    private List<SodaOrderLineDto> sodaOrderLines;
     private OrderStatusEnum orderStatus;
     private String orderStatusCallbackUrl;
 }

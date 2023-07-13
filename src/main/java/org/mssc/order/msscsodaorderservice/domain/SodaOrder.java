@@ -35,6 +35,8 @@ public class SodaOrder extends BaseEntity{
     @ManyToOne
     private Customer customer;
 
+    private String upc;
+
     private OrderStatusEnum orderStatus = OrderStatusEnum.NEW;
 
     private String orderStatusCallbackUrl;

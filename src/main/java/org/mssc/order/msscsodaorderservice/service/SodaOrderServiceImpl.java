@@ -11,6 +11,7 @@ import org.mssc.order.msscsodaorderservice.web.model.SodaOrderPagedList;
 import org.mssc.order.msscsodaorderservice.repositories.CustomerRepository;
 import org.mssc.order.msscsodaorderservice.repositories.SodaOrderRepository;
 import org.mssc.order.msscsodaorderservice.specification.SodaOrderSpecification;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -53,7 +54,7 @@ public class SodaOrderServiceImpl implements SodaOrderService {
 
     @Transactional
     @Override
-    public SodaOrderDto PlaceOrder(UUID customerId, SodaOrderDto sodaOrderDto) {
+    public SodaOrderDto placeOrder(UUID customerId, SodaOrderDto sodaOrderDto) {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent())
         {

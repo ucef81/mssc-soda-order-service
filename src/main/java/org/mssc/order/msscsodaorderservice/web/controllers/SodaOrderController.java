@@ -44,7 +44,7 @@ public class SodaOrderController {
     @ResponseStatus(HttpStatus.CREATED)
     public SodaOrderDto placeOrder(@PathVariable("customerId") UUID customerId, @RequestBody SodaOrderDto sodaOrderDto){
 
-        return sodaOrderService.PlaceOrder(customerId, sodaOrderDto);
+        return sodaOrderService.placeOrder(customerId, sodaOrderDto);
     }
 
     @GetMapping("orders/{orderId}")
