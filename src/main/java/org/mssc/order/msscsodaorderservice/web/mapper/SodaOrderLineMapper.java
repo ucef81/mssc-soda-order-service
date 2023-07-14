@@ -15,5 +15,7 @@ public interface SodaOrderLineMapper {
 
 
     SodaOrderLineDto sodaOrderLineToDto(SodaOrderLine sodaOrderLine);
+
     SodaOrderLine dtoToSodaOrderLine(SodaOrderLineDto sodaOrderLineDto);
+
 }

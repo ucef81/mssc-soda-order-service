@@ -11,7 +11,6 @@ import org.mssc.order.msscsodaorderservice.web.model.SodaOrderPagedList;
 import org.mssc.order.msscsodaorderservice.repositories.CustomerRepository;
 import org.mssc.order.msscsodaorderservice.repositories.SodaOrderRepository;
 import org.mssc.order.msscsodaorderservice.specification.SodaOrderSpecification;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,8 +36,9 @@ public class SodaOrderServiceImpl implements SodaOrderService {
         Optional<Customer> customer = customerRepository.findById(customerId);
         if (customer.isPresent()){
 
-            Page<SodaOrder> sodaOrderPage = sodaOrderRepository.findAll(pageable);
-            return new SodaOrderPagedList(sodaOrderPage.stream()
+            Page<SodaOrder> sodaOrderPage = sodaOrderRepository.findAllByCustomer(customer.get(),  pageable);
+            log.info("*******"+ String.valueOf(sodaOrderPage.getContent().stream().findFirst().get().getSodaOrderLines().stream().count()));
+            return new SodaOrderPagedList(sodaOrderPage.getContent().stream()
                     .map(sodaOrderMapper::sodaOrderToDto)
                     .collect(Collectors.toList()),
                     PageRequest.of(
@@ -59,9 +59,12 @@ public class SodaOrderServiceImpl implements SodaOrderService {
         if (customer.isPresent())
         {
             SodaOrder sodaOrder = sodaOrderMapper.dtoToSodaOrder(sodaOrderDto);
+
             sodaOrder.setId(null);
             sodaOrder.setCustomer(customer.get());
             sodaOrder.setOrderStatus(OrderStatusEnum.NEW);
+
+            sodaOrder.getSodaOrderLines().forEach(line -> line.setSodaOrder(sodaOrder));
             SodaOrder sodaSaved = sodaOrderRepository.saveAndFlush(sodaOrder);
             log.debug("Saved Beer Order: " + sodaSaved.getId());
             return sodaOrderMapper.sodaOrderToDto(sodaSaved);

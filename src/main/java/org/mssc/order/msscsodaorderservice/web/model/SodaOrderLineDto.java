@@ -16,7 +16,8 @@ public class SodaOrderLineDto extends BaseItem {
 
     @Builder
     public SodaOrderLineDto(UUID id, Integer version, OffsetDateTime createdDate, OffsetDateTime lastModifiedDate,
-                            String upc, UUID sodaId, String sodaName, String sodaStyle ,Integer orderQuantity, Integer quantityAllocated) {
+                            String upc, UUID sodaId, String sodaName, String sodaStyle ,Integer orderQuantity,
+                            Integer quantityAllocated, BigDecimal price) {
         super(id, version, createdDate, lastModifiedDate);
         this.upc = upc;
         this.sodaId = sodaId;
@@ -31,7 +32,8 @@ public class SodaOrderLineDto extends BaseItem {
     private String sodaName;
     private String sodaStyle;
     private UUID sodaId;
-    private Integer orderQuantity = 0;
     private BigDecimal price;
+
+    private Integer orderQuantity = 0;
     private Integer quantityAllocated = 0;
 }
