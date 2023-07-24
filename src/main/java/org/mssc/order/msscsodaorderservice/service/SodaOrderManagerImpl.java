@@ -37,6 +37,10 @@ public class SodaOrderManagerImpl implements SodaOrderManager {
 
         if(isValid){
             sendEvent(sodaOrder, OrderEventEnum.VALIDATION_PASSED);
+
+            SodaOrder ValidateOrder = sodaOrderRepository.findById(sodaOrderId).get();
+            sendEvent(sodaOrder, OrderEventEnum.ALLOCATE_ORDER );
+
         }else{
             sendEvent(sodaOrder, OrderEventEnum.ALLOCATION_FAILED);
         }

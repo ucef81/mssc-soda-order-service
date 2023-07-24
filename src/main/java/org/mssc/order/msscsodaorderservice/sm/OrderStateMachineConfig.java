@@ -2,7 +2,6 @@ package org.mssc.order.msscsodaorderservice.sm;
 
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.criterion.Order;
 import org.mssc.order.msscsodaorderservice.domain.OrderEventEnum;
 import org.mssc.order.msscsodaorderservice.domain.OrderStatusEnum;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +19,7 @@ import java.util.EnumSet;
 public class OrderStateMachineConfig extends StateMachineConfigurerAdapter<OrderStatusEnum, OrderEventEnum> {
 
     private final Action<OrderStatusEnum, OrderEventEnum> validateOrderAction;
+    private final Action<OrderStatusEnum, OrderEventEnum> allocateOrderAction;
 
     @Override
     public void configure(StateMachineStateConfigurer<OrderStatusEnum, OrderEventEnum> states) throws Exception {
@@ -44,7 +44,11 @@ public class OrderStateMachineConfig extends StateMachineConfigurerAdapter<Order
                 .event(OrderEventEnum.VALIDATION_PASSED)
                 .and().withExternal()
                 .source(OrderStatusEnum.VALIDATION_PENDING).target(OrderStatusEnum.VALIDATION_EXCEPTION)
-                .event(OrderEventEnum.VALIDATION_FAILED);
+                .event(OrderEventEnum.VALIDATION_FAILED)
+                 .and().withExternal()
+                .source(OrderStatusEnum.VALIDATED).target(OrderStatusEnum.ALLOCATION_PENDING)
+                .event(OrderEventEnum.VALIDATE_ORDER)
+                .action(allocateOrderAction);
 
     }
 }
