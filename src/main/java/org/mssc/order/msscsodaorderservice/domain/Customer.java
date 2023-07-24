@@ -18,6 +18,7 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @Entity
+
 public class Customer extends BaseEntity {
 
     @Builder
